@@ -5,12 +5,13 @@ export class Post {
     type: PostType;
     author: String;
     dateCreated: Date;
-    rating: {
-        username: String;
-        rating: number;
-    }
+    rating: Rating[];
 }
 
+export class Rating{
+    username: String;
+    rating: number;
+}
 export enum PostType{
     Story,
     Poem,
