@@ -3,34 +3,45 @@
     <div class="form-group">
         <label for="username">Username: </label>
         <span class="alert-danger" *ngIf="username.touched && username.errors">
-            <span  *ngIf="username.errors.uniqueUsername"> Username in already in used!</span>
+            <span  *ngIf="username.errors.uniqueUsername"> Username is already in used!</span>
             <span  *ngIf="username.errors && username.errors.required"> Name is required!</span>
         </span>
         <input type="text" formControlName="username" class="form-control" />
     </div>
     <div class="form-group">
         <label for="password">Password: </label>
+        <span class="alert-danger" *ngIf="password.touched && password.errors">
+            <span  *ngIf="password.errors && password.errors.required"> Password is required!</span>
+        </span>
         <input type="text" formControlName="password" class="form-control" />
     </div>
     <div class="form-group">
         <label for="email">Email: </label>
+        <span class="alert-danger" *ngIf="email.touched && email.errors">
+            <span  *ngIf="email.errors.uniqueEmail"> Email is already in used!</span>
+            <span  *ngIf="email.errors && email.errors.required"> Email is required!</span>
+        </span>
         <input type="text" formControlName="email" class="form-control" />
     </div>
     <div class="form-group">
         <label for="DOB">Date of Birth: </label>
-        <!-- <span class="alert-danger" *ngIf="DOB.touched && DOB.errors">
-                <span  *ngIf="DOB.errors.pattern"> Numbers only!</span>
-        </span> -->
+        <span class="alert-danger" *ngIf="DOB.touched && DOB.errors">
+            <span  *ngIf="DOB.errors && DOB.errors.required"> Date of Birth is required!</span>
+        </span>
         <input type="Date" formControlName="DOB" class="form-control"/>
     </div>
-    
-
     <div class="form-group">
         <label for="firstname">First Name: </label>
+        <span class="alert-danger" *ngIf="firstname.touched && firstname.errors">
+            <span  *ngIf="firstname.errors && firstname.errors.required"> FirstName is required!</span>
+        </span>
         <input type="text" formControlName="firstname" class="form-control" />
     </div>
     <div class="form-group">
         <label for="lastname">Last Name: </label>
+        <span class="alert-danger" *ngIf="lastname.touched && lastname.errors">
+            <span  *ngIf="lastname.errors && lastname.errors.required"> LastName is required!</span>
+        </span>
         <input type="text" formControlName="lastname" class="form-control" />
     </div>
     <button (click)="create(form)">Create</button>

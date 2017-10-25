@@ -19,11 +19,11 @@ export class UserCreationComponent implements OnInit{
     ngOnInit(){
         this.userCreationForm = this.fb.group({
             username: ['', [Validators.required], UserValidators.uniqueUsername(this.userService)],
-            password:[],
-            email:[],
-            DOB:[],
-            firstname:[],
-            lastname:[]
+            password:['', [Validators.required]],
+            email:['', [Validators.required], UserValidators.uniqueEmail(this.userService)],
+            DOB:['', [Validators.required]],
+            firstname:['', [Validators.required]],
+            lastname:['', [Validators.required]]
         })
     }
 

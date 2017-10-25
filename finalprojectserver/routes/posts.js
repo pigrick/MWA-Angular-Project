@@ -7,8 +7,9 @@ mongoose.connect('mongodb://localhost:27017/finalproject', {useMongoClient:true}
 const postSchema = new mongoose.Schema({
     title: String,
     content: String,
-    type: String,
+    type: Number,
     author: String,
+    dateCreated: Date,
     rating: {
         username: String,
         rating: Number
