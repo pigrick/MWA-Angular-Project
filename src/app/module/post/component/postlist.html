@@ -9,8 +9,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let post of postlist">
-                <td><a routerLink="/users/{{post._id}}">{{post.Title}}</a></td>
-                <td>{{post.author}}</td>
+                <td><a routerLink="/posts/{{post._id}}">{{post.title}}</a></td>
+                <td>{{post?.author}}</td>
                 <td>{{post.dateCreated | date:'medium'}}</td>
             </tr>
         </tbody>

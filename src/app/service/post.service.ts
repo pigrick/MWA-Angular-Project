@@ -24,6 +24,7 @@ export class PostService{
     }
 
     createPost(post: Post){
+        post.dateCreated = new Date();
         return this.http.post('http://localhost:3000/posts/create', post);
     }
 }

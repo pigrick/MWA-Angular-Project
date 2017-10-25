@@ -25,7 +25,6 @@ export class PostCreationComponent implements OnInit{
     }
 
     create(form:NgForm){
-        form.value.dateCreated = new Date();
         this.postService.createPost(form.value).subscribe(()=>{ 
             alert('Create Success!');
             this.router.navigate(['/posts']);
