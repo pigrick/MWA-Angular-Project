@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/">Angular Website</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">User
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/users">Users</a></li>
+          <li><a routerLink="/users/create">Create</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">Post
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/posts">Posts</a></li>
+          <li><a routerLink="/posts/creation">Create</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/cart">Cart</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   authorization: String
 });
 const User = mongoose.model('user', userSchema);
-router.get('/products', (req, res) => {
+router.get('/', (req, res) => {
   User.find((err, users)=>{
       if(err) return console.error(err);
       res.json(users);
@@ -24,7 +24,7 @@ router.delete('/delete/:username', (req, res)=>{
     User.remove({username: req.params.username}, (err)=>{
         if(err) return console.error(err);
         console.log(req.params.username + ' is successfully removed!')
-        res.end();
+        res.json('ok');
     })
 })
 

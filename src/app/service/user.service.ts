@@ -1,62 +1,29 @@
-import { Injectable } from '@angular/core'
-import { Product, Condition } from '../product.class';
+import { Injectable } from '@angular/core';
+import { User } from '../class/user.class';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http'
-import { Headers, RequestOptions } from '@angular/http'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/switchMap';
 
 @Injectable()
-export class ProductService{
+export class UserService{
     constructor(private http: HttpClient){}
     
-    getProducts():Observable<Product[]> {
-        return this.http.get<Product[]>('http://localhost:8080/products');
+    getUsers():Observable<User[]> {
+        return this.http.get<User[]>('http://localhost:3000/users');
     }
 
-    deleteProducts(id: String){
-        return this.http.delete('http://localhost:8080/delete/' + id);
+    deleteUser(username:String){
+        return this.http.delete('http://localhost:3000/users/delete/' + username);
     }
 
-    getProduct(id):Observable<Product>{
-        return this.http.get<Product[]>('http://localhost:8080/products').mergeMap(p => p).filter(p => p._id === id);
+    getUser(username):Observable<User>{
+        return this.http.get<User[]>('http://localhost:3000/users').mergeMap(user => user).filter(user => user.username === username);
     }
 
-    createProduct(product: Product){
-        return this.http.post('http://localhost:8080/create', product);
+    createUser(user: User){
+        return this.http.post('http://localhost:3000/users/create', user);
     }
-    // getProducts():Promise<Product[]> {
-    //     return new Promise((resolve, reject)=>{
-    //         fetch('http://localhost:8080/products')
-    //             .then(function(res) {
-    //                 resolve(res.json());
-    //             })
-    //     })
-    // }
-
-    // deleteProducts(id: String){
-    //     return new Promise((resolve, reject)=>{
-    //         fetch('http://localhost:8080/delete/' + id, {method: 'DELETE'})
-    //             .then(function(res){
-    //                 resolve();
-    //             }).catch(err => reject(err));
-    //     })
-    // }
-
-    // createProduct(product: Product){
-    //     return new Promise((resolve, reject)=>{
-    //         fetch('http://localhost:8080/create', { 
-    //             method: 'POST', 
-    //             headers: {
-    //                 'Accept': 'application/json, text/plain, */*',
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(product)
-    //         })
-    //             .then(res => resolve())
-    //             .catch(err => reject(err));
-    //     })
-    // }
 }
