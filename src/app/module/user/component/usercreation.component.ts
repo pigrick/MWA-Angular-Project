@@ -23,11 +23,13 @@ export class UserCreationComponent implements OnInit{
             email:['', [Validators.required], UserValidators.uniqueEmail(this.userService)],
             DOB:['', [Validators.required]],
             firstname:['', [Validators.required]],
-            lastname:['', [Validators.required]]
+            lastname:['', [Validators.required]],
+            authorization: ['normal']
         })
     }
 
     create(form:NgForm){
+        form.value.authorization 
         this.userService.createUser(form.value).subscribe(()=>{ 
             alert('Create Success!');
             this.router.navigate(['/users']);

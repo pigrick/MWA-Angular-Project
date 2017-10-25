@@ -18,14 +18,17 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a routerLink="/posts">Posts</a></li>
+          <li><a routerLink="/posts/mylist">My Posts</a></li>
           <li><a routerLink="/posts/create">Create</a></li>
         </ul>
       </li>
-      <li><a routerLink="/cart">Cart</a></li>
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a routerLink="/users/create"> <span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li *ngIf="!loggedin"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="loggedin"><a routerLink="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        
     </ul>
   </div>
 </nav>

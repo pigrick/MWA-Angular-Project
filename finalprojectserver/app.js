@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var posts = require('./routes/posts');
-var comments = require('./routes/comments')
+var comments = require('./routes/comments');
 
 
 var app = express();
@@ -20,10 +21,12 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -36,7 +39,6 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/posts', posts);
 app.use('/comments', comments);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

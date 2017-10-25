@@ -9,7 +9,15 @@
     </div>
     <div class="form-group">
         <label for="content">Content: </label>
-        <textarea formControlName="content" class="form-control"></textarea>
+        <textarea rows="10" formControlName="content" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="type">Type: </label>
+        <div class="form-control">
+                <label for="type" class="checkbox-inline"><input type="radio" formControlName="type" name="type" [value]="0">Story</label>
+                <label for="type" class="checkbox-inline"><input type="radio" formControlName="type" name="type" [value]="1">Poem</label>
+                <label for="type" class="checkbox-inline"><input type="radio" formControlName="type" name="type" [value]="2">Quote</label>
+        </div>
     </div>
     <button (click)="create(form)">Create</button>
 </form>

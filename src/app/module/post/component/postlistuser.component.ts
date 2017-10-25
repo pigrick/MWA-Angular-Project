@@ -10,14 +10,15 @@ import { AuthService } from '../../../service/auth.service';
     templateUrl: './postlist.html',
     styleUrls: []
 })
-export class PostListComponent implements OnInit{
+export class PostListUserComponent implements OnInit{
     postlist: Post[];
     constructor(private postService: PostService, private authService: AuthService){
     }
 
     getPosts():void {
         this.postService.getPosts()
-        .subscribe(posts => this.postlist = posts.sort((x,y) => {
+        
+        .subscribe(posts => this.postlist = posts.filter(post => post.author == localStorage.getItem('username')).sort((x,y) => {
             if(x.dateCreated > y.dateCreated){
                 return -1;
             } else if (x.dateCreated < y.dateCreated){
@@ -28,8 +29,8 @@ export class PostListComponent implements OnInit{
         }));
     }
 
-
     ngOnInit():void{
         this.getPosts();
+        console.log(localStorage.getItem('username'));
     }
 }

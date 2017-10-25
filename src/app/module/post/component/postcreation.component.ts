@@ -19,15 +19,16 @@ export class PostCreationComponent implements OnInit{
         this.postCreationForm = this.fb.group({
             title: ['', [Validators.required]],
             content:[],
-            author:[],
-            dateCreated:[]
+            author:[localStorage.getItem('username')],
+            dateCreated:[],
+            type:[],
         })
     }
 
     create(form:NgForm){
         this.postService.createPost(form.value).subscribe(()=>{ 
             alert('Create Success!');
-            this.router.navigate(['/posts']);
+            this.router.navigate(['/posts/mylist']);
         });
     }
 
@@ -39,5 +40,9 @@ export class PostCreationComponent implements OnInit{
     }
     get author(){
         return this.postCreationForm.get('author');
+    }
+
+    get type(){
+        return this.postCreationForm.get('type');
     }
 }

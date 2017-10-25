@@ -6,6 +6,7 @@ import { PostRoutingModule } from "../../routing/postrouting.module";
 import { PostComponent } from "./component/post.component";
 import { PostCreationComponent } from "./component/postcreation.component";
 import { PostListComponent } from "./component/postlist.component";
+import { PostListUserComponent } from "./component/postlistuser.component";
 import { PostDetailComponent } from "./component/postdetail.component";
 import { PostService } from '../../service/post.service';
 
@@ -14,6 +15,7 @@ import { PostService } from '../../service/post.service';
     PostComponent,
     PostCreationComponent,
     PostListComponent,
+    PostListUserComponent,
     PostDetailComponent
 
   ],
