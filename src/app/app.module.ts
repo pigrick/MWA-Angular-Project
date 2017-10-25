@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./routing/approuting.module";
 import { WelcomeComponent } from "./welcome.component";
 import { UserModule } from "./module/user/user.module";
+import { PostModule } from "./module/post/post.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserModule } from "./module/user/user.module";
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    PostModule
 
   ],
   providers: [],

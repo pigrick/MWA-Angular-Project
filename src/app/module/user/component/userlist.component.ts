@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { User } from '../../../class/user.class';
 import { UserService } from '../../../service/user.service';
 import { Observable } from 'rxjs/Observable';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'userlist',

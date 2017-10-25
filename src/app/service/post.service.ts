@@ -23,7 +23,7 @@ export class PostService{
         return this.http.get<Post[]>('http://localhost:3000/posts').mergeMap(post => post).filter(post => post._id === id);
     }
 
-    createUser(post: Post){
+    createPost(post: Post){
         return this.http.post('http://localhost:3000/posts/create', post);
     }
 }

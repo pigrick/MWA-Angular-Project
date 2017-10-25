@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'user-root',
+  selector: 'post-root',
   template: `
     <div class ="container">
         <h1>{{title}}</h1>
@@ -10,6 +10,6 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class UserComponent {
-  title = 'User Page';
+export class PostComponent {
+  title = 'Post Page';
 }
