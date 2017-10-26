@@ -68,6 +68,7 @@ import { DatePipe } from '@angular/common';
 export class PostDetailComponent implements OnInit{
     post$: Observable<Post>;
     comment$: Observable<Comment[]>;
+    overallRating;
     constructor(private postService: PostService, private route: ActivatedRoute,
         private router: Router, private commentService: CommentService) {}
 
