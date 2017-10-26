@@ -3,5 +3,6 @@ export class Comment {
     username: String;
     post_id: String;
     content: String;
+    dateCreated: Date;
     like: String[];
 }

@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
 import { SharedModule} from "./shared.module";
+=======
+import { SharedModule } from './shared.module';
+>>>>>>> d3fa164c5d9048275d4af19e115d26571806ec94
 import { AppComponent } from './component/app.component';
 import { AppRoutingModule } from "./routing/approuting.module";
 import { WelcomeComponent } from "./component/welcome.component";
@@ -14,6 +18,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from "./service/auth.service";
 import { AuthInterceptor } from "./interceptor/auth.interceptor";
 import { AuthGuard } from "./routing/guard/authguard.guard";
+import { AdminGuard } from "./routing/guard/adminguard.guard";
 
 @NgModule({
   declarations: [
@@ -34,6 +39,7 @@ import { AuthGuard } from "./routing/guard/authguard.guard";
   providers: [
     AuthService,
     AuthGuard,
+    AdminGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

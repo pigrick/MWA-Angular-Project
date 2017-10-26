@@ -13,7 +13,7 @@ export class AuthService {
                 localStorage.setItem('token', data['token']);
                 localStorage.setItem('username', data['username']);
                 localStorage.setItem('authorization', data['authorization']);
-                this.router.navigate(['/posts']);
+                this.router.navigate(['/posts/mylist']);
             },
             error => {
                 console.log(error.error.message);

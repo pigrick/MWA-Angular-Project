@@ -23,6 +23,10 @@ export class UserService{
         return this.http.get<User[]>('http://localhost:3000/users').mergeMap(user => user).filter(user => user.username === username);
     }
 
+    getUserByEmail(email):Observable<User>{
+        return this.http.get<User[]>('http://localhost:3000/users').mergeMap(user => user).filter(user => user.email === email);
+    }
+
     createUser(user: User){
         return this.http.post('http://localhost:3000/users/create', user);
     }

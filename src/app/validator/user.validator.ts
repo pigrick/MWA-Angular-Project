@@ -22,7 +22,7 @@ export class UserValidators{
 
     static uniqueEmail(userService: UserService) {
         return (control : AbstractControl) => {
-            return userService.getUser(control.value as string).map(user => {
+            return userService.getUserByEmail(control.value as string).map(user => {
                 if(user.email === control.value as string){
                     return false;
                 } else {
