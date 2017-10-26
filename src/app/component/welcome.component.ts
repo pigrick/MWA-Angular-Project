@@ -5,10 +5,15 @@ import { Component } from '@angular/core';
   template: `
     <div class ="container">
         <h1>{{title}}</h1>
+        <img src = "../../assets/images/welcom.png">
     </div>
   `,
-  styles: []
+  styles: [`.h1 {
+        text-align: center;
+        text-color: royalblue;
+        text-size: 20pt;
+  }`]
 })
 export class WelcomeComponent {
-  title = 'app';
+  title = 'welcome to our page, please sign in!';
 }

@@ -1,11 +1,2 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-.main-page {
-    background-color: lightblue;
-    font-style: Arial, Helvetica, sans-serif;
-    font-size: 16pt;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    padding: 14px 16px;
-}

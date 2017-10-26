@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
     Post.find((err, posts)=>{
     if(err) return console.error(err);
 res.json(posts);
-})
+    })
 })
 
 router.put('/update/:id', (req, res)=>{
@@ -47,7 +47,7 @@ router.delete('/delete/:id', (req, res)=>{
     if(err) return console.error(err);
 console.log('Post:' + post.title + ' is successfully removed!')
 res.json('ok');
-})
+    })
 })
 
 module.exports = router;
