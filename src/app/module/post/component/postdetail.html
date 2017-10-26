@@ -33,15 +33,15 @@
         <form>
             Overal Rating
             <div class="rating">
-                <input id="s5" name="star" type="radio" value="{{(post$ | async)?.rating | calculateRating }}" [value]="5" class="radio-btn hide" />
-                <label for="s5">☆</label>
-                <input id="s4" name="star" type="radio" value="{{(post$ | async)?.rating | calculateRating }}" [value]="4" class="radio-btn hide" />
+                <input id="s5" type="radio" disabled [checked]="((post$ | async)?.rating | calculateRating) === 5" [value]="5" class="radio-btn hide" />
+                <label for="s5">☆</label> 
+                <input id="s4" type="radio" disabled [checked]="((post$ | async)?.rating | calculateRating) === 4" [value]="4" class="radio-btn hide" />
                 <label for="s4">☆</label>
-                <input id="s3" name="star" type="radio" value="{{(post$ | async)?.rating | calculateRating }}" [value]="3" class="radio-btn hide" />
+                <input id="s3" type="radio" disabled [checked]="((post$ | async)?.rating | calculateRating) === 3" [value]="3" class="radio-btn hide" />
                 <label for="s3">☆</label>
-                <input id="s2" name="star" type="radio" value="{{(post$ | async)?.rating | calculateRating }}" [value]="2" class="radio-btn hide" />
+                <input id="s2" type="radio" disabled [checked]="((post$ | async)?.rating | calculateRating) === 2" [value]="2" class="radio-btn hide" />
                 <label for="s2">☆</label>
-                <input id="s1" name="star" type="radio" value="{{(post$ | async)?.rating | calculateRating }}" [value]="1" class="radio-btn hide" />
+                <input id="s1" type="radio" disabled [checked]="((post$ | async)?.rating | calculateRating) === 1" [value]="1" class="radio-btn hide" />
                 <label for="s1">☆</label>
                 <div class="clear"></div>
             </div>
@@ -53,15 +53,15 @@
         <form>
             Please Rate
             <div class="rating">
-                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                <input id="star5" type="radio" value="5" class="radio-btn hide" />
                 <label for="star5">☆</label>
-                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                <input id="star4" type="radio" value="4" class="radio-btn hide" />
                 <label for="star4">☆</label>
-                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                <input id="star3" type="radio" value="3" class="radio-btn hide" />
                 <label for="star3">☆</label>
-                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                <input id="star2" type="radio" value="2" class="radio-btn hide" />
                 <label for="star2">☆</label>
-                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                <input id="star1" type="radio" value="1" class="radio-btn hide" />
                 <label for="star1">☆</label>
                 <div class="clear"></div>
             </div>
