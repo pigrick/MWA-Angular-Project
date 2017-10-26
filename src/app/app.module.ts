@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { SharedModule } from './shared.module';
+import { SharedModule} from "./shared.module";
 import { AppComponent } from './component/app.component';
 import { AppRoutingModule } from "./routing/approuting.module";
 import { WelcomeComponent } from "./component/welcome.component";

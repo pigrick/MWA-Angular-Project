@@ -3,6 +3,7 @@ import { Post, PostType } from '../../../class/post.class';
 import { PostService } from '../../../service/post.service';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+
 import { DatePipe } from '@angular/common';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Rating } from "./class/post.class";
+import { Rating } from "../class/post.class";
 
 @Pipe({
     name: 'calculateRating'

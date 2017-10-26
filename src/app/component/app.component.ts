@@ -7,10 +7,11 @@ import { AuthService } from "../service/auth.service";
   styles: []
 })
 export class AppComponent implements DoCheck {
-  title = 'app';
+  title = 'Welcome to Our Website';
   loggedin;
 
   constructor(private authService:AuthService){}
+
   ngDoCheck(){
     if(this.authService.loggedIn()){
       this.loggedin = true;
@@ -21,5 +22,4 @@ export class AppComponent implements DoCheck {
   logout(){
       this.authService.logout();
   }
-
 }
