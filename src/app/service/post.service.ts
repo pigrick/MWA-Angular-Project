@@ -30,6 +30,7 @@ export class PostService{
         return this.http.post('http://localhost:3000/posts/create', post);
     }
     update(post: Post){
+        console.log(post);
         return this.http.put('http://localhost:3000/posts/update/' + post._id, post);
     }
 }

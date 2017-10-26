@@ -35,7 +35,7 @@ res.json(posts);
 })
 
 router.put('/update/:id', (req, res)=>{
-    Post.findOneAndUpdate({_id: req.params.id}, req.body, function(err, post){
+    Post.update({_id: req.params.id}, { $set:{ rating : req.body.rating } }, function(err, post){
     if(err) return console.error(err);
     console.log('Post:' + post.title + 'is updated successfully!')
 });
