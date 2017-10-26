@@ -30,6 +30,7 @@
     "debug": "^3.1.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "jQuery": "^1.7.4",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.12.4",
     "morgan": "^1.9.0",
@@ -44,6 +45,7 @@
     "@angular/cli": "1.4.9",
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
+    "@types/jquery": "^3.2.15",
     "typescript": "~2.3.3"
   }
 }

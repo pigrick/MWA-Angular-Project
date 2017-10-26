@@ -6,7 +6,7 @@ import { Rating } from "../class/post.class";
 })
 export class CalculateRating implements PipeTransform {
     transform(rates: Rating[]) {
-        if (rates.length <= 0) {
+        if (!rates) {
           return null;
         }
         let sum = 0, count = 0;
