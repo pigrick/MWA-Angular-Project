@@ -10,10 +10,10 @@ const postSchema = new mongoose.Schema({
     type: Number,
     author: String,
     dateCreated: Date,
-    rating: {
+    rating: [{
         username: String,
         rating: Number
-    }
+    }]
 });
 const Post = mongoose.model('post', postSchema);
 
