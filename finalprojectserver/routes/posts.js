@@ -50,4 +50,4 @@ res.json('ok');
 })
 })
 
-module.exports = route
+module.exports = router;

@@ -68,13 +68,14 @@ import { DatePipe } from '@angular/common';
 export class PostDetailComponent implements OnInit{
     post$: Observable<Post>;
     comment$: Observable<Comment[]>;
-    overallRating;
+    myRating;
     constructor(private postService: PostService, private route: ActivatedRoute,
         private router: Router, private commentService: CommentService) {}
 
     ngOnInit():void{
         this.post$ = this.route.paramMap.switchMap((params: ParamMap) => this.postService.getPost(params.get('id')));
         this.comment$ = this.route.paramMap.switchMap((params: ParamMap) => this.commentService.getCommentByPost(params.get('id')));
+        this.post$.subscribe(post => this.myRating = post.rating.find(us => us.username === this.getLocalUser()).rating);
     }
 
     deletePost(){
@@ -102,5 +103,12 @@ export class PostDetailComponent implements OnInit{
         this.commentService.deleteComment(id).subscribe(() => {
             this.comment$ = this.commentService.getCommentByPost(this.route.snapshot.paramMap.get('id'));
         });
+    }
+
+    rate(rate){
+        this.post$.subscribe(post => {
+            post.rating.push({username: this.getLocalUser(),rating: rate });
+            this.postService.update(post);
+        })
     }
 }
