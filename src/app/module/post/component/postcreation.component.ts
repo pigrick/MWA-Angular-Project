@@ -18,10 +18,10 @@ export class PostCreationComponent implements OnInit{
     ngOnInit(){
         this.postCreationForm = this.fb.group({
             title: ['', [Validators.required]],
-            content:[],
+            content:['', [Validators.required]],
             author:[localStorage.getItem('username')],
             dateCreated:[],
-            type:[],
+            type:['', [Validators.required]],
         })
     }
 
