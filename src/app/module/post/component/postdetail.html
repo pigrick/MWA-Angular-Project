@@ -53,15 +53,15 @@
         <form>
             Please Rate
             <div class="rating">
-                <input id="star5" type="radio" value="5" class="radio-btn hide" />
+                <input id="star5" type="radio" [checked]="((post$ | async)?.rating | calculateRating) === 5" [value]="5" class="radio-btn hide" />
                 <label for="star5">☆</label>
-                <input id="star4" type="radio" value="4" class="radio-btn hide" />
+                <input id="star4" type="radio" [checked]="((post$ | async)?.rating | calculateRating) === 4" [value]="4" class="radio-btn hide" />
                 <label for="star4">☆</label>
-                <input id="star3" type="radio" value="3" class="radio-btn hide" />
+                <input id="star3" type="radio" [checked]="((post$ | async)?.rating | calculateRating) === 3" [value]="3" class="radio-btn hide" />
                 <label for="star3">☆</label>
-                <input id="star2" type="radio" value="2" class="radio-btn hide" />
+                <input id="star2" type="radio" [checked]="((post$ | async)?.rating | calculateRating) === 2" [value]="2" class="radio-btn hide" />
                 <label for="star2">☆</label>
-                <input id="star1" type="radio" value="1" class="radio-btn hide" />
+                <input id="star1" type="radio" [checked]="((post$ | async)?.rating | calculateRating) === 1" [value]="1" class="radio-btn hide" />
                 <label for="star1">☆</label>
                 <div class="clear"></div>
             </div>

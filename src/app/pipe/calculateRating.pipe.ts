@@ -14,7 +14,6 @@ export class CalculateRating implements PipeTransform {
             sum += rates[i].rating;
             count ++;
         }
-        console.log(sum/count);
         return sum/count;
     }
 }
