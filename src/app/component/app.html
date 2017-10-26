@@ -9,8 +9,9 @@
         <a class="dropdown-toggle" data-toggle="dropdown">User
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a routerLink="/users">Users</a></li>
-          <li><a routerLink="/users/create">Create</a></li>
+          <li *ngIf="getLocalAuthorization() === 'admin'"><a routerLink="/users">Users</a></li>
+          <li *ngIf="getLocalAuthorization() === 'normal'"><a routerLink="/users/profile">Profile</a></li>
+          <li *ngIf="getLocalAuthorization() === 'admin'"><a routerLink="/users/create">Create</a></li>
         </ul>
       </li>
       <li class="dropdown">
@@ -26,8 +27,8 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a routerLink="/users/create"> <span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li *ngIf="!loggedin"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li *ngIf="loggedin"><a routerLink="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li *ngIf="!getLocalUser()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="getLocalUser()"><a routerLink="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         
     </ul>
   </div>

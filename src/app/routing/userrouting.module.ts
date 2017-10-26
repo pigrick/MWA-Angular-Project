@@ -4,6 +4,8 @@ import { UserComponent } from "../module/user/component/user.component";
 import { UserCreationComponent } from "../module/user/component/usercreation.component";
 import { UserListComponent } from '../module/user/component/userlist.component';
 import { UserDetailComponent } from "../module/user/component/userdetail.component";
+import { AuthGuard } from "../routing/guard/authguard.guard";
+import { AdminGuard } from "./guard/adminguard.guard";
 
 const userRoute: Routes = [
     {
@@ -12,12 +14,18 @@ const userRoute: Routes = [
         children: [
             {
                 path: "",
-                component: UserListComponent
+                component: UserListComponent,
+                canActivate: [AdminGuard]
             },
             {
                 path: "create",
                 component: UserCreationComponent
             },
+            {
+                path: "profile",
+                component: UserDetailComponent,
+                canActivate: [AuthGuard]
+            }, 
             {
                 path: ":username",
                 component: UserDetailComponent

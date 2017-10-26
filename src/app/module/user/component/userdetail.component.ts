@@ -12,11 +12,16 @@ import { DatePipe } from '@angular/common';
 })
 export class UserDetailComponent implements OnInit{
     user$: Observable<User>;
+    user: User;
     constructor(private userService: UserService, private route: ActivatedRoute,
         private router: Router) {}
 
     ngOnInit():void{
-        this.user$ = this.route.paramMap.switchMap((params: ParamMap) => this.userService.getUser(params.get('username')));
+        if(localStorage.getItem('authorization') === 'admin'){
+            this.user$ = this.route.paramMap.switchMap((params: ParamMap) => this.userService.getUser(params.get('username')));
+        } else {
+            this.user$ = this.userService.getUser(localStorage.getItem('username'));
+        }
     }
 
     deleteUser(){

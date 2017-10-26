@@ -8,6 +8,7 @@ const commentSchema = new mongoose.Schema({
     username: String,
     post_id: String,
     content: String,
+    dateCreated: Date,
     like: [String]
 });
 const Comment = mongoose.model('comment', commentSchema);
@@ -42,6 +43,13 @@ router.delete('/delete/:id', (req, res)=>{
         if(err) return console.error(err);
         console.log('Comment is removed successfully!')
         res.json('ok');
+    })
+})
+
+router.get('/post/:id', (req, res) =>{
+    Comment.find({post_id: req.params.id}, (err, comments) =>{
+        if(err) return console.error(err);
+        res.json(comments);
     })
 })
 

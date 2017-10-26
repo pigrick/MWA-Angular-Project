@@ -1,11 +1,17 @@
 <div class="container">
     <h2>Title : {{(post$ | async)?.title}} </h2>
     <div class="form-group">
-        <label class="control-label col-sm-2">author: </label>
+        <label class="control-label col-sm-2">Author: </label>
         <div class="col-sm-10">
-            <label> {{(post$ | async)?.author}} hi </label>
+            <label> {{(post$ | async)?.author}} </label>
         </div>
     </div>
+    <div class="form-group">
+            <label class="control-label col-sm-2">Type: </label>
+            <div class="col-sm-10">
+                <label> {{getType((post$ | async)?.type)}} </label>
+            </div>
+        </div>
     <div class="form-group">
         <label class="control-label col-sm-2">Date Created: </label>
         <div class="col-sm-10">
@@ -17,5 +23,33 @@
         <div class="well">
                 <p>{{(post$ | async)?.content}}</p>  
         </div>
-        <button (click)="deletePost()">Delete</button>
-    </div>
+        <button *ngIf="getLocalUser() === (post$ | async)?.author" class="btn-danger" (click)="deletePost()">Delete</button>
+</div>
+<div class="container">
+        
+
+</div>
+<div class="container">
+        <h4>Leave a Comment:</h4>
+        <form role="form" #form="ngForm">
+          <div class="form-group">
+            <input type="hidden" ngModel name="post_id" [value]="5234523" />
+            <textarea ngModel name="content" class="form-control" rows="3" required></textarea>
+          </div>
+          <button class="btn btn-success" (click)="submitComment(form)">Submit</button>
+        </form>
+        <br><br>
+        
+        <p><span class="badge">{{(comment$ | async)?.length}}</span> Comments:</p><br>
+
+        
+        <div class="row well well-sm" *ngFor="let comment of comment$ | async">
+            <div class="col-sm-12">
+                <h4>{{comment.username}} <small>{{comment.dateCreated | date:'medium'}}</small></h4>
+                <p>{{comment.content}}</p>
+                <button *ngIf="getLocalUser() === comment.username" class="btn-danger" (click)="deleteComment(comment._id)">Delete</button>
+                <br>
+            </div>
+        
+        </div>
+</div>

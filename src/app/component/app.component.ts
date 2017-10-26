@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from "../service/auth.service";
 
 @Component({
@@ -6,20 +6,17 @@ import { AuthService } from "../service/auth.service";
   templateUrl: './app.html',
   styles: []
 })
-export class AppComponent implements DoCheck {
+export class AppComponent {
   title = 'app';
-  loggedin;
 
   constructor(private authService:AuthService){}
-  ngDoCheck(){
-    if(this.authService.loggedIn()){
-      this.loggedin = true;
-    } else {
-      this.loggedin = false;
-    }
+
+
+  getLocalUser(){
+    return localStorage.getItem('username');
   }
-  logout(){
-      this.authService.logout();
+  getLocalAuthorization(){
+    return localStorage.getItem('authorization');
   }
 
 }

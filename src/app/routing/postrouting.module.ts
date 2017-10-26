@@ -6,6 +6,7 @@ import { PostListComponent } from '../module/post/component/postlist.component';
 import { PostListUserComponent } from '../module/post/component/postlistuser.component';
 import { PostDetailComponent } from "../module/post/component/postdetail.component";
 import { AuthGuard } from "./guard/authguard.guard";
+import { AdminGuard } from "./guard/adminguard.guard";
 
 const postRoute: Routes = [
     {

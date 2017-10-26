@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from "../../../service/user.service";
 import { UserValidators } from "../../../validator/user.validator";
 import { Router } from '@angular/router';
+import { AuthService } from "../../../service/auth.service";
 
 @Component({
     selector: 'user-creation',
@@ -14,7 +15,7 @@ export class UserCreationComponent implements OnInit{
     //user: user = new user();
     userCreationForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private userService: UserService, private router: Router){}
+    constructor(private fb: FormBuilder, private userService: UserService, private router: Router, private authService: AuthService){}
 
     ngOnInit(){
         this.userCreationForm = this.fb.group({
@@ -32,7 +33,9 @@ export class UserCreationComponent implements OnInit{
         form.value.authorization 
         this.userService.createUser(form.value).subscribe(()=>{ 
             alert('Create Success!');
-            this.router.navigate(['/users']);
+            this.authService.logout();
+            this.authService.login({username: form.value.username, password: form.value.password})
+            //this.router.navigate(['/users']);
         });
     }
     userValid(){
