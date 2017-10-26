@@ -11,12 +11,21 @@ export class ColorsDirective {
     @HostListener('mouseenter')
     onMouseEnter() {
         this.changeColor(this.myColor);
+        this.changeBold(true);
     }
     @HostListener('mouseleave')
     onMouseLeave() {
-        this.changeColor('white');
+        this.changeColor(null);
+        this.changeBold(false);
     }
     private changeColor(color: string) {
         this.el.nativeElement.style.backgroundColor = color;
+    }
+    private changeBold(boolean : Boolean){
+        if(boolean) {
+            this.el.nativeElement.style.fontWeight = 'bold';
+        } else {
+            this.el.nativeElement.style.fontWeight = 'normal';
+        }
     }
 }

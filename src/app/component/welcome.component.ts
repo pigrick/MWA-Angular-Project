@@ -15,5 +15,5 @@ import { Component } from '@angular/core';
   }`]
 })
 export class WelcomeComponent {
-  title = 'welcome to our page, please sign in!';
+  title = 'Welcome to Penagrapher! Please sign in!';
 }
