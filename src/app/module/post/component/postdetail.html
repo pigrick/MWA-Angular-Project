@@ -24,7 +24,7 @@
                 <p>{{(post$ | async)?.content}}</p>  
         </div>
         <button (click)="deletePost()">Delete</button>
-    </div>
+    
 
         <button *ngIf="getLocalUser() === (post$ | async)?.author" class="btn-danger" (click)="deletePost()">Delete</button>
 </div>
