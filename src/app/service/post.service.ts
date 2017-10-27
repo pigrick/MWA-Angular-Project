@@ -24,7 +24,6 @@ export class PostService{
     }
 
     createPost(post: Post){
-        post.rating = [{username: "pigrick", rating: 4}, {username: "hihi", rating: 2}]
         post.dateCreated = new Date();
         console.log(post);
         return this.http.post('http://localhost:3000/posts/create', post);
